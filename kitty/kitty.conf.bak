@@ -1,0 +1,94 @@
+font_family      CaskaydiaCove Nerd Font Mono
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+
+# Modern styling
+enable_audio_bell no
+font_size 12.0
+window_padding_width 15
+include theme.conf
+
+# Window styling
+background_opacity 1.0
+hide_window_decorations yes
+confirm_os_window_close 0
+window_margin_width 5
+adjust_line_height 120%
+cursor_shape beam
+cursor_beam_thickness 1.5
+cursor_blink_interval 0.5
+cursor_stop_blinking_after 15.0
+scrollback_lines 10000
+wheel_scroll_multiplier 5.0
+touch_scroll_multiplier 1.0
+
+# URL styling
+url_style curly
+# url_color #0087bd
+detect_urls yes
+
+# Modern layouts
+enabled_layouts splits:split_axis=horizontal,stack,tall:bias=50;full_size=1
+
+# Window management
+map ctrl+shift+e launch --location=vsplit --cwd=current
+map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i
+map ctrl+l combine : scroll_to_prompt -1 : clear_terminal to_cursor active
+
+# Vim-style window navigation
+map ctrl+j neighboring_window left
+map ctrl+semicolon neighboring_window right
+map ctrl+k neighboring_window up
+
+# Window movement and focus
+map ctrl+left neighboring_window left
+map ctrl+right neighboring_window right
+map ctrl+up neighboring_window up
+map ctrl+down neighboring_window down
+
+# Copy and paste
+map ctrl+shift+c send_text all \x03
+map ctrl+c copy_to_clipboard
+map ctrl+v paste_from_clipboard
+
+# Selection behavior
+mouse_selection_with_shift yes
+
+# Tab management
+map ctrl+shift+t new_tab
+map ctrl+shift+w close_tab
+map ctrl+shift+semicolon next_tab
+map ctrl+shift+j previous_tab
+map ctrl+shift+. move_tab_forward
+map ctrl+shift+, move_tab_backward
+
+# Window splits
+map f5 launch --location=hsplit --cwd=current
+map f6 launch --location=vsplit --cwd=current
+map f4 launch --location=split --cwd=current
+
+# Layout actions
+map f7 layout_action rotate
+map ctrl+shift+up layout_action move_to_screen_edge top
+map ctrl+shift+left layout_action move_to_screen_edge left
+map ctrl+shift+right layout_action move_to_screen_edge right
+map ctrl+shift+down layout_action move_to_screen_edge bottom
+
+# Window resizing
+map ctrl+shift+r start_resizing_window
+map ctrl+left resize_window narrower
+map ctrl+right resize_window wider
+map ctrl+up resize_window taller
+map ctrl+down resize_window shorter
+
+# initially empty, to be configured by user and remains static
+include userprefs.conf
+
+# Note: as userprefs.conf is included at the end, settings configured in this file will override the defaults
+
+
+# BEGIN_KITTY_THEME
+# 1984 Dark
+include current-theme.conf
+# END_KITTY_THEME
